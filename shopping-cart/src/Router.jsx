@@ -7,10 +7,10 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import App from "./App";
-import Store from "./components/Store";
+import Store from "./components/Store/Store"
 import Home from "./components/HomePage/Home";
 import ErrorPage from "./ErrorPage";
-import Bag from "./components/Bag";
+import Bag from "./components/Bag/Bag";
 
 
 const router = createBrowserRouter(
@@ -27,21 +27,5 @@ const router = createBrowserRouter(
   )
 );
 
-/* const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <App/>,
-        errorElement: <ErrorPage/>,
-        children: [
-            {
-                index: true, 
-                element: <Home/>
-            }
-        ]
-    }
-]) */
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
-);
+
+export default router;

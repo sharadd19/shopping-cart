@@ -9,7 +9,7 @@ export default function Home() {
         Discover our selection of fresh fruits, bursting with flavor and
         vitality. Delivered straight from the farm to your table.
       </h3>{
-      <Link to="/store" >
+      <Link to="/store">
         <button className="shop-now">Shop now</button>
       </Link>}
       {/* <HomeCarousel/> */}

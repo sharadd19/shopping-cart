@@ -1,0 +1,19 @@
+.editItemCount{ 
+    display: flex;
+    gap: 20px;
+    
+    justify-content: center;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border: 1px solid black;
+    width: 300px;
+}
+
+.productImage {
+    border: 1px solid green;
+    height: 150px;
+}
