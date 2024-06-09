@@ -7,42 +7,39 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import App from "./App";
-import Profile from "./Profile";
+import Store from "./components/Store";
 import Home from "./components/HomePage/Home";
+import ErrorPage from "./ErrorPage";
+import Bag from "./components/Bag";
+
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route
-      path="/home"
-      element={<App />}
-      loader={appLoader}
-      action={appAction}
-      errorElement={<ErrorPage />}
-    >
-      <Route errorElement={<ErrorPage />}>
-        <Route index element={<Home />} />
-        <Route
-          path="/home"
-          element={<Home />}
-          loader={homeLoader}
-          action={homeAction}
-        />
-        <Route
-          path="/store"
-          element={<Store />}
-          loader={storeLoader}
-          action={storeAction}
-        />
-        <Route
-          path="/bag"
-          element={<Bag />}
-          loader={bagLoader}
-          action={bagAction}
-        />
+    <>
+      <Route path="/" element={<App/>} errorElement={<ErrorPage />}>
+        <Route errorElement={<ErrorPage />}>
+          <Route index element={<Home />} />
+          <Route path="/store" element={<Store />}/>
+          <Route path="/bag" element={<Bag/>}/>
+        </Route>
       </Route>
-    </Route>
+    </>
   )
 );
+
+/* const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <App/>,
+        errorElement: <ErrorPage/>,
+        children: [
+            {
+                index: true, 
+                element: <Home/>
+            }
+        ]
+    }
+]) */
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router} />

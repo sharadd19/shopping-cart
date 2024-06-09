@@ -1,3 +1,5 @@
+import NavbarSearch from "./Navbar/NavbarSearch";
+
 export default function Store() {
   // Have our api data come through here
   const products = [
@@ -8,6 +10,7 @@ export default function Store() {
   return (
     <>
       {/* <Sidebar /> */}
+      {/* <NavbarSearch/> */}
       {products.map((product) => (
         <Link to="/product/:id/information">
           <ProductCard key={product.id} product={product} />

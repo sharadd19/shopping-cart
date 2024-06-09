@@ -1,8 +1,8 @@
-export default function HomeCarousel(){
+/* export default function HomeCarousel(){
 
     return (
         <>
         <img src="" alt="" />
         </>
     )
-}
+} */
