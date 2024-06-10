@@ -20,6 +20,10 @@ export default function Bag() {
     itemToChange.itemQuantity += 1;
     setBagItems((bagItems) => [...bagItems]);
   }
+
+  function handleDelete(id) {
+    setBagItems((bagItems) => bagItems.filter((item) => item.id !== id));
+  }
   let subTotal = 0;
   if (bagItems.length > 0) {
     subTotal = bagItems.reduce(
@@ -40,6 +44,7 @@ export default function Bag() {
                 bagItem={bagItem}
                 handleDecreaseClick={() => handleDecreaseClick(bagItem.id)}
                 handleIncreaseClick={() => handleIncreaseClick(bagItem.id)}
+                handleDelete={() => handleDelete(bagItem.id)}
               />
             ))}
           </div>

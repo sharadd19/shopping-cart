@@ -28,7 +28,13 @@ export default function Store() {
   ];
 
   const numberOfProducts = products.length;
-
+  /* 
+  When we click on a product, get the id, if the product is new to the bag, create a map that has the id<->quantity  and add to the bag.
+  When you add the same item to the bag, you look for the item in the map and increase that quantity and display that quantity
+  The quantity will be state which will be an array of objects const [quantity, setQuantity] = useState([{id: 1, quantity: 2}. {id: 2, quantity: 3}]) 
+  const quantityMap = api.map((item) => {id: item.id, quantity: 1} // setQuantity(quantityMap)
+  const itemQuantity = quantity.find((item) => item.id === id).quantity 
+  */
   function handleClick(cardId) {
     const productToAdd = products.find((product) => product.id === cardId);
     const productInBag = bagItems.find((item) => item.id === productToAdd.id);
