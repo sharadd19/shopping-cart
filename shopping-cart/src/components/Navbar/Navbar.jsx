@@ -3,11 +3,8 @@ import NavbarBag from "./NavbarBag"; */
 import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css"
 
-export default function Navbar() {
+export default function Navbar({bagItems, numberOfBagItems}) {
 
-
-  /* const numberOfFavouriteItems = 5;
-  const numberOfItemsInBag = 5; */
   return (
     <>
       <div className={styles.navbar}>
@@ -22,7 +19,7 @@ export default function Navbar() {
         <div className={styles.navbarRight}>
           <h3>Favourite</h3>
           <Link to="/bag">
-            <h3>Bag</h3>
+            <h3>Bag ({numberOfBagItems})</h3>
           </Link>
           {/* <NavbarFavourite numberOfFavouriteItems={numberOfFavouriteItems} />
           <NavbarBag numberOfItemsInBag={numberOfItemsInBag} /> */}

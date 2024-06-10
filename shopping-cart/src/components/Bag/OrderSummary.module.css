@@ -3,9 +3,19 @@
     flex-direction: column;
     border: 1px solid black;
     padding: 20px;
+    width: 250px;
 }
 
 .row {
     display: flex;
     justify-content: space-between;
+}
+
+hr{
+    border: 0;
+  clear:both;
+  display:block;
+  width: 96%;               
+  background-color:black;
+  height: 1px;
 }

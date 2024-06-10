@@ -1,19 +1,38 @@
-.editItemCount{ 
-    display: flex;
-    gap: 20px;
-    
-    justify-content: center;
+.editItemCount {
+  display: flex;
+  gap: 20px;
+
+  justify-content: center;
 }
 
 .card {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    border: 1px solid black;
-    width: 300px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border: 1px solid black;
+  width: 300px;
+  align-items: flex-start;
 }
 
 .productImage {
-    border: 1px solid green;
-    height: 150px;
+  border: 1px solid green;
+  height: 150px;
+  width: 230px;
+  align-self: center;
 }
+
+.productInformation {
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+
+.productName {
+  text-align: left;
+  
+}
+
+p {
+  margin: 10px;
+}
+

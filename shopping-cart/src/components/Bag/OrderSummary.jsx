@@ -1,22 +1,25 @@
-import { Link } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import styles from "./OrderSummary.module.css";
 
-export default function OrderSummary({ bagItems }) {
+
+export default function OrderSummary({ subTotal }) {
+  const { bagItemsKey } = useOutletContext();
+  const [bagItems, setBagItems] = bagItemsKey;
   const VAT = 1.2;
-  const subTotal = bagItems.reduce(
-    (acc, product) => acc + product.totalPrice,
-    0
-  );
-  const orderTotal = (subTotal * VAT).toFixed(2)
+  const orderTotal = (subTotal * VAT).toFixed(2);
+
+  function handleClick() {
+    setBagItems([]);
+  }
 
   return (
     <div className={styles.container}>
       <h2>Order Summary</h2>
 
       {bagItems.map((bagItem) => (
-        <div className={styles.row}>
-          <div>{bagItem.name}</div>
-          <div>£{bagItem.totalPrice}</div>
+        <div key={bagItem.id} className={styles.row}>
+          <div>{bagItem.productName}</div>
+          <div>£{bagItem.itemQuantity * bagItem.productPrice}</div>
         </div>
       ))}
       <div className={styles.row}>
@@ -27,12 +30,16 @@ export default function OrderSummary({ bagItems }) {
         <p>VAT (20%) </p>
         <p>£{VAT}</p>
       </div>
-      <hr />
+      <hr></hr>
       <div className={styles.row}>
         <p>TOTAL</p>
         <p>£{orderTotal}</p>
       </div>
-      <Link to="/"><button className={styles.checkout}>Checkout</button></Link>
+      <Link to="/">
+        <button onClick={handleClick} className={styles.checkout}>
+          Checkout
+        </button>
+      </Link>
     </div>
   );
 }
