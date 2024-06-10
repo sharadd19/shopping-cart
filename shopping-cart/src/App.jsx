@@ -7,6 +7,8 @@ import { number } from "prop-types";
 
 function App() {
   const [bagItems, setBagItems] = useState([]);
+  const [quantity, setQuantity] = useState(1);
+
   let numberOfBagItems;
   if (bagItems.length > 0) {
     numberOfBagItems = bagItems.reduce(
@@ -26,6 +28,7 @@ function App() {
         context={{
           bagItemsKey: [bagItems, setBagItems],
           numberOfBagItemsKey: [numberOfBagItems],
+          quantityKey: [quantity, setQuantity]
         }}
       />
     </>

@@ -3,11 +3,11 @@ import styles from "./OrderSummary.module.css";
 
 
 export default function OrderSummary({ subTotal }) {
-  const { bagItemsKey } = useOutletContext();
+  const { bagItemsKey, quantityKey } = useOutletContext();
   const [bagItems, setBagItems] = bagItemsKey;
+  const [quantity, setQuantity] = quantityKey;
   const VAT = 1.2;
   const orderTotal = (subTotal * VAT).toFixed(2);
-
   function handleClick() {
     setBagItems([]);
   }

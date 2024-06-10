@@ -3,7 +3,7 @@ import NavbarBag from "./NavbarBag"; */
 import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css"
 
-export default function Navbar({bagItems, numberOfBagItems}) {
+export default function Navbar({numberOfBagItems}) {
 
   return (
     <>

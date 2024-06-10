@@ -3,10 +3,10 @@ import styles from "./Store.module.css";
 import { useOutletContext } from "react-router-dom";
 
 export default function Store() {
+  const { bagItemsKey, quantityKey } = useOutletContext();
+  const [bagItems, setBagItems] = bagItemsKey;
+  const [quantity, setQuantity] = quantityKey;
 
-const{bagItemsKey} = useOutletContext();
-const [bagItems, setBagItems] = bagItemsKey;
-  
   // Have our api data come through here
   const products = [
     {
@@ -15,7 +15,7 @@ const [bagItems, setBagItems] = bagItemsKey;
       productPrice: 1,
       image: "",
       description: "This is my beautiful product",
-      itemQuantity: 4,
+      itemQuantity: 1
     },
     {
       id: 2,
@@ -23,7 +23,7 @@ const [bagItems, setBagItems] = bagItemsKey;
       productPrice: 2,
       image: "",
       description: "This is my beautiful product",
-      itemQuantity: 2,
+      itemQuantity: 1
     },
   ];
 
@@ -31,8 +31,16 @@ const [bagItems, setBagItems] = bagItemsKey;
 
   function handleClick(cardId) {
     const productToAdd = products.find((product) => product.id === cardId);
-    setBagItems((bagItems) => [...bagItems, productToAdd] );
-
+    const productInBag = bagItems.find((item) => item.id === productToAdd.id);
+    if (productInBag) {
+      productInBag.itemQuantity += 1;
+      setBagItems((bagItems) => [...bagItems])
+      
+    }
+    else {
+      setBagItems((bagItems) => [...bagItems, productToAdd]);
+    }
+    
   }
   return (
     <>
@@ -41,7 +49,11 @@ const [bagItems, setBagItems] = bagItemsKey;
       <h1>Products ({numberOfProducts})</h1>
       <div className={styles.productCards}>
         {products.map((product) => (
-          <ProductCard handleClick={() => handleClick(product.id)} key={product.id} product={product} />
+          <ProductCard
+            handleClick={() => handleClick(product.id)}
+            key={product.id}
+            product={product}
+          />
         ))}
       </div>
     </>
