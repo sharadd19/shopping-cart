@@ -5,7 +5,7 @@ import { useOutletContext } from "react-router-dom";
 export default function Store() {
   const { bagItemsKey, quantityKey } = useOutletContext();
   const [bagItems, setBagItems] = bagItemsKey;
-  const [quantity, setQuantity] = quantityKey;
+  // const [quantity, setQuantity] = quantityKey;
 
   // Have our api data come through here
   const products = [
@@ -15,7 +15,7 @@ export default function Store() {
       productPrice: 1,
       image: "",
       description: "This is my beautiful product",
-      itemQuantity: 1
+      itemQuantity: 1,
     },
     {
       id: 2,
@@ -23,7 +23,7 @@ export default function Store() {
       productPrice: 2,
       image: "",
       description: "This is my beautiful product",
-      itemQuantity: 1
+      itemQuantity: 1,
     },
   ];
 
@@ -40,13 +40,10 @@ export default function Store() {
     const productInBag = bagItems.find((item) => item.id === productToAdd.id);
     if (productInBag) {
       productInBag.itemQuantity += 1;
-      setBagItems((bagItems) => [...bagItems])
-      
-    }
-    else {
+      setBagItems((bagItems) => [...bagItems]);
+    } else {
       setBagItems((bagItems) => [...bagItems, productToAdd]);
     }
-    
   }
   return (
     <>

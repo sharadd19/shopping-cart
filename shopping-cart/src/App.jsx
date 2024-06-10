@@ -12,14 +12,12 @@ function App() {
   let numberOfBagItems;
   if (bagItems.length > 0) {
     numberOfBagItems = bagItems.reduce(
-        (acc, item) => acc + item.itemQuantity,
-        0
-      );
-  }
-  else {
+      (acc, item) => acc + item.itemQuantity,
+      0
+    );
+  } else {
     numberOfBagItems = 0;
   }
-  
 
   return (
     <>
@@ -28,7 +26,7 @@ function App() {
         context={{
           bagItemsKey: [bagItems, setBagItems],
           numberOfBagItemsKey: [numberOfBagItems],
-          quantityKey: [quantity, setQuantity]
+          quantityKey: [quantity, setQuantity],
         }}
       />
     </>

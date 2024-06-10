@@ -3,7 +3,8 @@ import OrderSummary from "./OrderSummary";
 import styles from "./Bag.module.css";
 import { useOutletContext } from "react-router";
 export default function Bag() {
-  const { bagItemsKey, numberOfBagItemsKey, quantityKey } = useOutletContext();
+
+  const { bagItemsKey, numberOfBagItemsKey } = useOutletContext();
   const [bagItems, setBagItems] = bagItemsKey;
   const [numberOfBagItems] = numberOfBagItemsKey;
 
@@ -39,6 +40,7 @@ export default function Bag() {
         <div className={styles.bag}>
           <div className={styles.bagItems}>
             {bagItems.map((bagItem) => (
+              bagItem.itemQuantity !== 0 &&
               <BagItem
                 key={bagItem.id}
                 bagItem={bagItem}

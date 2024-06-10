@@ -2,10 +2,15 @@ import { useState } from "react";
 import styles from "./BagItems.module.css";
 import { number } from "prop-types";
 import { useOutletContext } from "react-router";
-export default function BagItem({ bagItem, handleDecreaseClick, handleIncreaseClick, handleDelete }) {
+export default function BagItem({
+  bagItem,
+  handleDecreaseClick,
+  handleIncreaseClick,
+  handleDelete,
+}) {
   let itemQuantity = bagItem.itemQuantity;
   const { quantityKey } = useOutletContext();
-  const [quantity, setQuantity] = quantityKey;
+  // const [quantity, setQuantity] = quantityKey;
 
   const totalPrice = bagItem.productPrice * itemQuantity;
   return (
@@ -30,9 +35,7 @@ export default function BagItem({ bagItem, handleDecreaseClick, handleIncreaseCl
           </button>
         </div>
         <p>£{totalPrice}</p>
-        <button
-        onClick={() => handleDelete(bagItem.id)}
-        >Delete</button>
+        <button onClick={() => handleDelete(bagItem.id)}>Delete</button>
       </div>
     </>
   );

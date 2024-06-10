@@ -1,7 +1,6 @@
 import { Link, useOutletContext } from "react-router-dom";
 import styles from "./OrderSummary.module.css";
 
-
 export default function OrderSummary({ subTotal }) {
   const { bagItemsKey, quantityKey } = useOutletContext();
   const [bagItems, setBagItems] = bagItemsKey;
