@@ -17,7 +17,6 @@ export default function Navbar({numberOfBagItems}) {
           </Link>
         </div>
         <div className={styles.navbarRight}>
-          <h3>Favourite</h3>
           <Link to="/bag">
             <h3>Bag ({numberOfBagItems})</h3>
           </Link>
