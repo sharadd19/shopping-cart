@@ -1,24 +1,18 @@
-import { useState } from "react";
-import styles from "./BagItems.module.css";
-import { number } from "prop-types";
-import { useOutletContext } from "react-router";
+import styles from "./BagItem.module.css";
 export default function BagItem({
   bagItem,
   handleDecreaseClick,
   handleIncreaseClick,
   handleDelete,
 }) {
-  let itemQuantity = bagItem.itemQuantity;
-  const { quantityKey } = useOutletContext();
-  // const [quantity, setQuantity] = quantityKey;
 
-  const totalPrice = bagItem.productPrice * itemQuantity;
+  const totalPrice = bagItem.price * bagItem.quantity;
   return (
     <>
       <div className={styles.container}>
-        <img className={styles.image} src="" alt="" />
-        <p>{bagItem.productName}</p>
-        <p>£{bagItem.productPrice}</p>
+        <img className={styles.image} src={bagItem.image} alt="" />
+        <p>{bagItem.name}</p>
+        <p>£{bagItem.price}</p>
         <div className={styles.editItemCount}>
           <button
             onClick={() => handleDecreaseClick(bagItem.id)}
@@ -26,7 +20,7 @@ export default function BagItem({
           >
             -
           </button>
-          <p className={styles.quantity}>{itemQuantity}</p>
+          <p className={styles.quantity}>{bagItem.quantity}</p>
           <button
             onClick={() => handleIncreaseClick(bagItem.id)}
             className={styles.increaseItemCount}

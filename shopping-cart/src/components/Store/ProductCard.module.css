@@ -14,13 +14,6 @@
   align-items: flex-start;
 }
 
-.productImage {
-  border: 1px solid green;
-  height: 150px;
-  width: 230px;
-  align-self: center;
-}
-
 .productInformation {
   display: flex;
   flex-wrap: wrap;
@@ -34,5 +27,10 @@
 
 p {
   margin: 10px;
+}
+
+.topCard > img {
+  width: 230px;
+  height:150px
 }
 

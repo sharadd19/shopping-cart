@@ -1,5 +1,3 @@
-/* import NavbarFavourite from "./NavbarFavourite";
-import NavbarBag from "./NavbarBag"; */
 import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css"
 
@@ -20,8 +18,6 @@ export default function Navbar({numberOfBagItems}) {
           <Link to="/bag">
             <h3>Bag ({numberOfBagItems})</h3>
           </Link>
-          {/* <NavbarFavourite numberOfFavouriteItems={numberOfFavouriteItems} />
-          <NavbarBag numberOfItemsInBag={numberOfItemsInBag} /> */}
         </div>
       </div>
     </>

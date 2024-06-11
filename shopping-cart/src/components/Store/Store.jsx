@@ -5,24 +5,15 @@ import NavbarSearch from "../Navbar/NavbarSearch";
 import { matchSorter } from "match-sorter";
 import { useEffect } from "react";
 
-const products = [
-  {
-    id: 1,
-    productName: "Tangerine",
-    productPrice: 1,
-    image: "",
-    description: "This is my beautiful product",
-    itemQuantity: 1,
-  },
-  {
-    id: 2,
-    productName: "Apple",
-    productPrice: 2,
-    image: "",
-    description: "This is my beautiful product",
-    itemQuantity: 1,
-  },
-];
+async function apiCall() {
+  const url = "https://fakestoreapi.com/products";
+  const response = await fetch(url, { mode: "cors" });
+  let data = await response.json();
+  data = data.filter((item) => item.category === "electronics");
+  console.log(data);
+  return data;
+}
+const products = await apiCall();
 
 function getProducts(query) {
   let items = products;
@@ -41,12 +32,9 @@ export function loader({ request }) {
 }
 
 export default function Store() {
-  const { bagItemsKey, quantityKey } = useOutletContext();
+  const { bagItemsKey } = useOutletContext();
   const [bagItems, setBagItems] = bagItemsKey;
   const submit = useSubmit();
-  // const [quantity, setQuantity] = quantityKey;
-
-  // Have our api data come through here
 
   /* Our data comes from the loader now instead of the hard coded array. 
   If we were using an API we would put that into the loaderData so its accessible throughout this component. */
@@ -57,23 +45,31 @@ export default function Store() {
   useEffect(() => {
     document.getElementById("q").value = q;
   }, [q]);
-  /* 
-  When we click on a product, get the id, if the product is new to the bag, create a map that has the id<->quantity  and add to the bag.
-  When you add the same item to the bag, you look for the item in the map and increase that quantity and display that quantity
-  The quantity will be state which will be an array of objects const [quantity, setQuantity] = useState([{id: 1, quantity: 2}. {id: 2, quantity: 3}]) 
-  const quantityMap = api.map((item) => {id: item.id, quantity: 1} // setQuantity(quantityMap)
-  const itemQuantity = quantity.find((item) => item.id === id).quantity 
-  */
-  function handleClick(cardId) {
-    const productToAdd = items.find((product) => product.id === cardId);
-    const productInBag = bagItems.find((item) => item.id === productToAdd.id);
-    if (productInBag) {
-      productInBag.itemQuantity += 1;
+
+  function getProduct(id) {
+    return items.find((item) => item.id === id);
+  }
+
+  function updateBag(id) {
+    const product = getProduct(id);
+    const isProductInBag = bagItems.find((item) => item.id === id);
+    if (isProductInBag) {
+      isProductInBag.quantity += 1;
       setBagItems((bagItems) => [...bagItems]);
     } else {
-      setBagItems((bagItems) => [...bagItems, productToAdd]);
+      setBagItems((bagItems) => [
+        ...bagItems,
+        {
+          id: id,
+          quantity: 1,
+          price: product.price,
+          name: product.title,
+          image: product.image,
+        },
+      ]);
     }
   }
+
   return (
     <>
       <h1>Products ({numberOfProducts})</h1>
@@ -81,7 +77,7 @@ export default function Store() {
       <div className={styles.productCards}>
         {items.map((product) => (
           <ProductCard
-            handleClick={() => handleClick(product.id)}
+            handleClick={() => updateBag(product.id)}
             key={product.id}
             product={product}
           />

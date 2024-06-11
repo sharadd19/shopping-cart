@@ -1,20 +1,14 @@
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import { Outlet } from "react-router-dom";
-import Home from "./components/HomePage/Home";
 import { useState } from "react";
-import { number } from "prop-types";
 
 function App() {
   const [bagItems, setBagItems] = useState([]);
-  const [quantity, setQuantity] = useState(1);
 
   let numberOfBagItems;
   if (bagItems.length > 0) {
-    numberOfBagItems = bagItems.reduce(
-      (acc, item) => acc + item.itemQuantity,
-      0
-    );
+    numberOfBagItems = bagItems.reduce((acc, item) => acc + item.quantity, 0);
   } else {
     numberOfBagItems = 0;
   }
@@ -26,7 +20,6 @@ function App() {
         context={{
           bagItemsKey: [bagItems, setBagItems],
           numberOfBagItemsKey: [numberOfBagItems],
-          quantityKey: [quantity, setQuantity],
         }}
       />
     </>

@@ -2,13 +2,13 @@ import { Link, useOutletContext } from "react-router-dom";
 import styles from "./OrderSummary.module.css";
 
 export default function OrderSummary({ subTotal }) {
-  const { bagItemsKey, quantityKey } = useOutletContext();
+  const { bagItemsKey } = useOutletContext();
   const [bagItems, setBagItems] = bagItemsKey;
-  const [quantity, setQuantity] = quantityKey;
-  const VAT = 1.2;
-  const orderTotal = (subTotal * VAT).toFixed(2);
+  const VAT = Math.round(0.2 * subTotal * 10)/100;
+  const orderTotal = subTotal + VAT
   function handleClick() {
     setBagItems([]);
+    alert("Thank you for your purchase :D")
   }
 
   return (
@@ -16,9 +16,10 @@ export default function OrderSummary({ subTotal }) {
       <h2>Order Summary</h2>
 
       {bagItems.map((bagItem) => (
+        bagItem.quantity !== 0 &&
         <div key={bagItem.id} className={styles.row}>
-          <div>{bagItem.productName}</div>
-          <div>£{bagItem.itemQuantity * bagItem.productPrice}</div>
+          <div>{bagItem.name}</div>
+          <div>£{bagItem.quantity * bagItem.price}</div>
         </div>
       ))}
       <div className={styles.row}>

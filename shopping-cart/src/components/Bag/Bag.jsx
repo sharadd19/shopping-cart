@@ -3,7 +3,6 @@ import OrderSummary from "./OrderSummary";
 import styles from "./Bag.module.css";
 import { useOutletContext } from "react-router";
 export default function Bag() {
-
   const { bagItemsKey, numberOfBagItemsKey } = useOutletContext();
   const [bagItems, setBagItems] = bagItemsKey;
   const [numberOfBagItems] = numberOfBagItemsKey;
@@ -11,24 +10,25 @@ export default function Bag() {
   function handleDecreaseClick(id) {
     const itemToChange = bagItems.find((item) => item.id === id);
 
-    if (itemToChange.itemQuantity > 0) {
-      itemToChange.itemQuantity -= 1;
+    if (itemToChange.quantity > 0) {
+      itemToChange.quantity -= 1;
       setBagItems((bagItems) => [...bagItems]);
     }
   }
   function handleIncreaseClick(id) {
     const itemToChange = bagItems.find((item) => item.id === id);
-    itemToChange.itemQuantity += 1;
+    itemToChange.quantity += 1;
     setBagItems((bagItems) => [...bagItems]);
   }
 
   function handleDelete(id) {
     setBagItems((bagItems) => bagItems.filter((item) => item.id !== id));
   }
+
   let subTotal = 0;
   if (bagItems.length > 0) {
     subTotal = bagItems.reduce(
-      (acc, item) => acc + item.productPrice * item.itemQuantity,
+      (acc, item) => acc + item.price * item.quantity,
       0
     );
   }
@@ -39,16 +39,18 @@ export default function Bag() {
         <h1>Your bag ({numberOfBagItems})</h1>
         <div className={styles.bag}>
           <div className={styles.bagItems}>
-            {bagItems.map((bagItem) => (
-              bagItem.itemQuantity !== 0 &&
-              <BagItem
-                key={bagItem.id}
-                bagItem={bagItem}
-                handleDecreaseClick={() => handleDecreaseClick(bagItem.id)}
-                handleIncreaseClick={() => handleIncreaseClick(bagItem.id)}
-                handleDelete={() => handleDelete(bagItem.id)}
-              />
-            ))}
+            {bagItems.map(
+              (bagItem) =>
+                bagItem.quantity !== 0 && (
+                  <BagItem
+                    key={bagItem.id}
+                    bagItem={bagItem}
+                    handleDecreaseClick={() => handleDecreaseClick(bagItem.id)}
+                    handleIncreaseClick={() => handleIncreaseClick(bagItem.id)}
+                    handleDelete={() => handleDelete(bagItem.id)}
+                  />
+                )
+            )}
           </div>
           <OrderSummary subTotal={subTotal} />
         </div>
