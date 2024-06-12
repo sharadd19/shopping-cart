@@ -5,20 +5,22 @@ import { matchSorter } from "match-sorter";
 import { useEffect } from "react";
 import ProductSearch from "./ProductSearch"
 async function apiCall() {
-  const url = "https://fakestoreapi.com/products";
-  const response = await fetch(url, { mode: "cors" });
-  let data = await response.json();
-  data = data.filter((item) => item.category === "electronics");
-  const cleanedData = data.map((item) => {
-     const cleanedItemDescription = item.description.split(";")[0]
-     return {...item, description: cleanedItemDescription};
-     
-  })
-  console.log(cleanedData);
-  return cleanedData;
+  try {
+    const url = "https://fakestoreapi.com/products";
+    const response = await fetch(url, { mode: "cors" });
+    let data = await response.json();
+    data = data.filter((item) => item.category === "electronics");
+    const cleanedData = data.map((item) => {
+      const cleanedItemDescription = item.description.split(";")[0];
+      return { ...item, description: cleanedItemDescription };
+    });
+    return cleanedData;
+  } catch (error) {
+    alert(error);
+  }
 }
 const products = await apiCall();
-
+console.log(products)
 function getProducts(query) {
   let items = products;
   if (query) {

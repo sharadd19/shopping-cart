@@ -4,15 +4,19 @@ import { Outlet } from "react-router-dom";
 import { useCallback, useState } from "react";
 
 /* async function apiCall() {
-  const url = "https://fakestoreapi.com/products";
-  const response = await fetch(url, { mode: "cors" });
-  let data = await response.json();
-  data = data.filter((item) => item.category === "electronics");
-  const cleanedData = data.map((item) => {
-    const cleanedItemDescription = item.description.split(";")[0];
-    return { ...item, description: cleanedItemDescription };
-  });
-  return cleanedData;
+  try {
+    const url = "https://fakestoreapi.com/products";
+    const response = await fetch(url, { mode: "cors" });
+    let data = await response.json();
+    data = data.filter((item) => item.category === "electronics");
+    const cleanedData = data.map((item) => {
+      const cleanedItemDescription = item.description.split(";")[0];
+      return { ...item, description: cleanedItemDescription };
+    });
+    return cleanedData;
+  } catch (error) {
+    alert(error);
+  }
 } */
 
 function App() {
@@ -24,9 +28,9 @@ function App() {
   } else {
     numberOfBagItems = 0;
   }
-  // const products = useCallback(apiCall, []);
-  // console.log(products);
 
+  // const products = useCallback(apiCall, [])
+  
   return (
     <>
       <Navbar
