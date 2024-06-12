@@ -1,74 +1,5 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`App Component > render the navbar component 1`] = `
-<div>
-  <div
-    class="_navbar_278c00"
-  >
-    <div
-      class="_navbarLeft_278c00"
-    >
-      <a
-        href="/"
-      >
-        <h1
-          class="_title_278c00"
-        >
-          fruits.
-        </h1>
-      </a>
-      <a
-        href="/store"
-      >
-        <h3
-          class="_store_278c00"
-        >
-          Store
-        </h3>
-      </a>
-    </div>
-    <div
-      class="_navbarRight_278c00"
-    >
-      <a
-        href="/bag"
-      >
-        <h3
-          data-testid="number-bag-items"
-        >
-          Bag (
-          )
-        </h3>
-      </a>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`App Component > renders home page 1`] = `
-<div>
-  <h1
-    class="title"
-  >
-    Welcome to fruits.
-  </h1>
-  <h3
-    class="summary"
-  >
-    Discover our selection of fresh fruits, bursting with flavor and vitality. Delivered straight from the farm to your table.
-  </h3>
-  <a
-    href="/store"
-  >
-    <button
-      class="shop-now"
-    >
-      Shop now
-    </button>
-  </a>
-</div>
-`;
-
 exports[`App Component > renders the app component 1`] = `
 <div>
   <div
@@ -83,7 +14,7 @@ exports[`App Component > renders the app component 1`] = `
         <h1
           class="_title_278c00"
         >
-          fruits.
+          SATO.
         </h1>
       </a>
       <a
@@ -118,20 +49,20 @@ exports[`App Component > renders the app component 1`] = `
 exports[`App Component > renders the home component 1`] = `
 <div>
   <h1
-    class="title"
+    class="_title_8d9e9b"
   >
-    Welcome to fruits.
+    Welcome to SATO.
   </h1>
   <h3
-    class="summary"
+    class="_summary_8d9e9b"
   >
-    Discover our selection of fresh fruits, bursting with flavor and vitality. Delivered straight from the farm to your table.
+    Discover our selection of electronics
   </h3>
   <a
     href="/store"
   >
     <button
-      class="shop-now"
+      class="_shopButton_8d9e9b"
     >
       Shop now
     </button>
@@ -153,190 +84,7 @@ exports[`App Component > renders the navbar component 1`] = `
         <h1
           class="_title_278c00"
         >
-          fruits.
-        </h1>
-      </a>
-      <a
-        href="/store"
-      >
-        <h3
-          class="_store_278c00"
-        >
-          Store
-        </h3>
-      </a>
-    </div>
-    <div
-      class="_navbarRight_278c00"
-    >
-      <a
-        href="/bag"
-      >
-        <h3
-          data-testid="number-bag-items"
-        >
-          Bag (
-          )
-        </h3>
-      </a>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`App Component > should render the navbar component 1`] = `
-<div>
-  <div
-    class="_navbar_278c00"
-  >
-    <div
-      class="_navbarLeft_278c00"
-    >
-      <a
-        href="/"
-      >
-        <h1
-          class="_title_278c00"
-        >
-          fruits.
-        </h1>
-      </a>
-      <a
-        href="/store"
-      >
-        <h3
-          class="_store_278c00"
-        >
-          Store
-        </h3>
-      </a>
-    </div>
-    <div
-      class="_navbarRight_278c00"
-    >
-      <a
-        href="/bag"
-      >
-        <h3
-          data-testid="number-bag-items"
-        >
-          Bag (
-          )
-        </h3>
-      </a>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Home Component > renders the home component 1`] = `
-<div>
-  <h1
-    class="title"
-  >
-    Welcome to fruits.
-  </h1>
-  <h3
-    class="summary"
-  >
-    Discover our selection of fresh fruits, bursting with flavor and vitality. Delivered straight from the farm to your table.
-  </h3>
-  <a
-    href="/store"
-  >
-    <button
-      class="shop-now"
-    >
-      Shop now
-    </button>
-  </a>
-</div>
-`;
-
-exports[`Home Component > should render the home component 1`] = `
-<div>
-  <h1
-    class="title"
-  >
-    Welcome to fruits.
-  </h1>
-  <h3
-    class="summary"
-  >
-    Discover our selection of fresh fruits, bursting with flavor and vitality. Delivered straight from the farm to your table.
-  </h3>
-  <a
-    href="/store"
-  >
-    <button
-      class="shop-now"
-    >
-      Shop now
-    </button>
-  </a>
-</div>
-`;
-
-exports[`Home Component > should render the navbar component 1`] = `
-<div>
-  <div
-    class="_navbar_278c00"
-  >
-    <div
-      class="_navbarLeft_278c00"
-    >
-      <a
-        href="/"
-      >
-        <h1
-          class="_title_278c00"
-        >
-          fruits.
-        </h1>
-      </a>
-      <a
-        href="/store"
-      >
-        <h3
-          class="_store_278c00"
-        >
-          Store
-        </h3>
-      </a>
-    </div>
-    <div
-      class="_navbarRight_278c00"
-    >
-      <a
-        href="/bag"
-      >
-        <h3
-          data-testid="number-bag-items"
-        >
-          Bag (
-          )
-        </h3>
-      </a>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Navbar Component > should render nav and match snapshot 1`] = `
-<div>
-  <div
-    class="_navbar_278c00"
-  >
-    <div
-      class="_navbarLeft_278c00"
-    >
-      <a
-        href="/"
-      >
-        <h1
-          class="_title_278c00"
-        >
-          fruits.
+          SATO.
         </h1>
       </a>
       <a

@@ -1,46 +1,22 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Home Component > renders the home component 1`] = `
-<div>
-  <h1
-    class="title"
-  >
-    Welcome to fruits.
-  </h1>
-  <h3
-    class="summary"
-  >
-    Discover our selection of fresh fruits, bursting with flavor and vitality. Delivered straight from the farm to your table.
-  </h3>
-  <a
-    href="/store"
-  >
-    <button
-      class="shop-now"
-    >
-      Shop now
-    </button>
-  </a>
-</div>
-`;
-
 exports[`Home Component > renders the home component and match snapshot 1`] = `
 <div>
   <h1
-    class="title"
+    class="_title_8d9e9b"
   >
-    Welcome to fruits.
+    Welcome to SATO.
   </h1>
   <h3
-    class="summary"
+    class="_summary_8d9e9b"
   >
-    Discover our selection of fresh fruits, bursting with flavor and vitality. Delivered straight from the farm to your table.
+    Discover our selection of electronics
   </h3>
   <a
     href="/store"
   >
     <button
-      class="shop-now"
+      class="_shopButton_8d9e9b"
     >
       Shop now
     </button>

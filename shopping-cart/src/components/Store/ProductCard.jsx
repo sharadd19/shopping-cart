@@ -7,11 +7,11 @@ export default function ProductCard({ product, handleClick }) {
         <div className={styles.topCard}>
           <img className={styles.favouriteIcon} src={product.image} alt="" />
         </div>
-        <div className={styles.productImage}>Image</div>
-        <p className={styles.price}>
-          <strong>£{product.price}</strong>
-        </p>
+
         <div className={styles.productInformation}>
+          <p className={styles.price}>
+            <strong>£{product.price}</strong>
+          </p>
           <p className={styles.productDescription}>{product.description}</p>
           <button
             onClick={() => handleClick(product.id)}

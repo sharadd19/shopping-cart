@@ -8,7 +8,7 @@ export default function Navbar({numberOfBagItems}) {
       <div className={styles.navbar}>
         <div className={styles.navbarLeft}>
           <Link to="/">
-            <h1 className={styles.title}>fruits.</h1>
+            <h1 className={styles.title}>SATO.</h1>
           </Link>
           <Link to="/store">
             <h3 className={styles.store}>Store</h3>

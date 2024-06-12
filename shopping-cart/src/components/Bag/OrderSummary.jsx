@@ -18,7 +18,7 @@ export default function OrderSummary({ subTotal }) {
       {bagItems.map((bagItem) => (
         bagItem.quantity !== 0 &&
         <div key={bagItem.id} className={styles.row}>
-          <div>{bagItem.name}</div>
+          <div>{bagItem.name} <strong>x{bagItem.quantity}</strong></div>
           <div>£{bagItem.quantity * bagItem.price}</div>
         </div>
       ))}
@@ -32,8 +32,8 @@ export default function OrderSummary({ subTotal }) {
       </div>
       <hr></hr>
       <div className={styles.row}>
-        <p>TOTAL</p>
-        <p>£{orderTotal}</p>
+        <p><strong>TOTAL</strong></p>
+        <p><strong>£{orderTotal}</strong></p>
       </div>
       <Link to="/">
         <button onClick={handleClick} className={styles.checkout}>

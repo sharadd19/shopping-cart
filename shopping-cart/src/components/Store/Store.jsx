@@ -1,24 +1,28 @@
 import ProductCard from "./ProductCard";
 import styles from "./Store.module.css";
 import { useLoaderData, useOutletContext, useSubmit } from "react-router-dom";
-import NavbarSearch from "../Navbar/NavbarSearch";
 import { matchSorter } from "match-sorter";
 import { useEffect } from "react";
-
+import ProductSearch from "./ProductSearch"
 async function apiCall() {
   const url = "https://fakestoreapi.com/products";
   const response = await fetch(url, { mode: "cors" });
   let data = await response.json();
   data = data.filter((item) => item.category === "electronics");
-  console.log(data);
-  return data;
+  const cleanedData = data.map((item) => {
+     const cleanedItemDescription = item.description.split(";")[0]
+     return {...item, description: cleanedItemDescription};
+     
+  })
+  console.log(cleanedData);
+  return cleanedData;
 }
 const products = await apiCall();
 
 function getProducts(query) {
   let items = products;
   if (query) {
-    items = matchSorter(items, query, { keys: ["productName"] });
+    items = matchSorter(items, query, { keys: ["title"] });
   }
   return items;
 }
@@ -74,7 +78,7 @@ export default function Store() {
   return (
     <>
       <h1>Products ({numberOfProducts})</h1>
-      <NavbarSearch items={items} q={q} submit={submit} />
+      <ProductSearch items={items} q={q} submit={submit} />
       <div className={styles.productCards}>
         {items.map((product) => (
           <ProductCard

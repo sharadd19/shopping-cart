@@ -11,7 +11,7 @@ describe("Navbar Component", () => {
         </MemoryRouter>
       );
   
-      const logoLink = screen.getByRole("link", { name: /fruits./i });
+      const logoLink = screen.getByRole("link", { name: /sato./i });
       expect(logoLink).toHaveAttribute("href", "/");
   
       const storeLink = screen.getByRole("link", { name: /store/i });

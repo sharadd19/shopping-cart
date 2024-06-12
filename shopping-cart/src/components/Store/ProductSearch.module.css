@@ -1,0 +1,17 @@
+.searchContainer {
+     display: flex;
+  justify-content: flex-end;
+}
+
+.search {
+  border-radius: 20px;
+  margin-bottom: 10px;
+  border: 1px solid grey;
+  padding: 0.5em 1em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: white;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}

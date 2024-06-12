@@ -1,9 +1,10 @@
 import { Form } from "react-router-dom";
-export default function NavbarSearch({ q, submit}) {
+import styles from "./ProductSearch.module.css"
+export default function ProductSearch({ q, submit}) {
   
 
   return (
-    <div className="search">
+    <div className={styles.searchContainer}>
       <img src="" alt="" className="icon" />
 
       <Form id="search-form" role="search">
@@ -12,7 +13,7 @@ export default function NavbarSearch({ q, submit}) {
           name="q"
           type="search"
           placeholder="Search"
-          className="search-query"
+          className={styles.search}
           defaultValue={{q}}
           onChange={(e) => {
             submit(e.currentTarget.form)
