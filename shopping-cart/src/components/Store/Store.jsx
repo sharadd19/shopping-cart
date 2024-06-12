@@ -50,12 +50,13 @@ export default function Store() {
     return items.find((item) => item.id === id);
   }
 
-  function updateBag(id) {
+  function addToBag(id) {
     const product = getProduct(id);
     const isProductInBag = bagItems.find((item) => item.id === id);
     if (isProductInBag) {
       isProductInBag.quantity += 1;
       setBagItems((bagItems) => [...bagItems]);
+      
     } else {
       setBagItems((bagItems) => [
         ...bagItems,
@@ -77,7 +78,7 @@ export default function Store() {
       <div className={styles.productCards}>
         {items.map((product) => (
           <ProductCard
-            handleClick={() => updateBag(product.id)}
+            handleClick={() => addToBag(product.id)}
             key={product.id}
             product={product}
           />

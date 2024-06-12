@@ -1,0 +1,46 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Navbar Component > should render nav and match snapshot 1`] = `
+<div>
+  <div
+    class="_navbar_278c00"
+  >
+    <div
+      class="_navbarLeft_278c00"
+    >
+      <a
+        href="/"
+      >
+        <h1
+          class="_title_278c00"
+        >
+          fruits.
+        </h1>
+      </a>
+      <a
+        href="/store"
+      >
+        <h3
+          class="_store_278c00"
+        >
+          Store
+        </h3>
+      </a>
+    </div>
+    <div
+      class="_navbarRight_278c00"
+    >
+      <a
+        href="/bag"
+      >
+        <h3
+          data-testid="number-bag-items"
+        >
+          Bag (
+          )
+        </h3>
+      </a>
+    </div>
+  </div>
+</div>
+`;
