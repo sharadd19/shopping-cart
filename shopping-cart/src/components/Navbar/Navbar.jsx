@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css"
+import { useContext } from "react";
+import { ShopContext } from "../../Context";
 
-export default function Navbar({numberOfBagItems}) {
+export default function Navbar(/* {numberOfBagItems} */) {
+
+  const numberOfBagItems = useContext(ShopContext);
 
   return (
     <>

@@ -3,7 +3,10 @@ import styles from "./Store.module.css";
 import { useLoaderData, useOutletContext, useSubmit } from "react-router-dom";
 import { matchSorter } from "match-sorter";
 import { useEffect } from "react";
-import ProductSearch from "./ProductSearch"
+import ProductSearch from "./ProductSearch";
+import { useContext } from "react";
+import { ShopContext } from "../../Context";
+
 async function apiCall() {
   try {
     const url = "https://fakestoreapi.com/products";
@@ -19,8 +22,10 @@ async function apiCall() {
     alert(error);
   }
 }
+
 const products = await apiCall();
-console.log(products)
+console.log(products);
+
 function getProducts(query) {
   let items = products;
   if (query) {
@@ -38,8 +43,10 @@ export function loader({ request }) {
 }
 
 export default function Store() {
-  const { bagItemsKey } = useOutletContext();
-  const [bagItems, setBagItems] = bagItemsKey;
+  /* const { bagItemsKey } = useOutletContext();
+  const [bagItems, setBagItems] = bagItemsKey; */
+  const { bagItems }  = useContext(ShopContext);
+  console.log(bagItems)
   const submit = useSubmit();
 
   /* Our data comes from the loader now instead of the hard coded array. 
@@ -62,7 +69,6 @@ export default function Store() {
     if (isProductInBag) {
       isProductInBag.quantity += 1;
       setBagItems((bagItems) => [...bagItems]);
-      
     } else {
       setBagItems((bagItems) => [
         ...bagItems,

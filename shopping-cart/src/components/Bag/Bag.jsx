@@ -3,11 +3,15 @@ import OrderSummary from "./OrderSummary";
 import styles from "./Bag.module.css";
 import { useOutletContext } from "react-router";
 import { useMemo } from "react";
+import { useContext } from "react";
+import { ShopContext } from "../../Context";
 
 export default function Bag() {
-  const { bagItemsKey, numberOfBagItemsKey } = useOutletContext();
+  /* const { bagItemsKey, numberOfBagItemsKey } = useOutletContext();
   const [bagItems, setBagItems] = bagItemsKey;
-  const [numberOfBagItems] = numberOfBagItemsKey;
+  const [numberOfBagItems] = numberOfBagItemsKey; */
+  
+  const {bagItems, numberOfBagItems} = useContext(ShopContext);
   
   // This is how a reducer function would be used to change the bag items state 
   // We cant do it here because our store also depends on bag items and it would get complicated to do so.
