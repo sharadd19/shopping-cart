@@ -1,5 +1,7 @@
 # Shopping Cart 
 
+You can find the deployed website [here](https://shopping-cart-4erk3xumq-sharadd19s-projects.vercel.app/)
+
 ## Description 
 This project was part of one of the projects to complete in [_The Odin Project_](https://www.theodinproject.com/lessons/node-path-react-new-shopping-cart) course for full-stack web development. 
 
