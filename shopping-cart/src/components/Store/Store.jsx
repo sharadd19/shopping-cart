@@ -19,9 +19,11 @@ async function apiCall() {
     alert(error);
   }
 }
-const products = await apiCall();
-console.log(products)
-function getProducts(query) {
+//const products = await apiCall();
+//console.log(products)
+async function getProducts(query) {
+  const products = await apiCall();
+  console.log(products)
   let items = products;
   if (query) {
     items = matchSorter(items, query, { keys: ["title"] });
@@ -30,10 +32,11 @@ function getProducts(query) {
 }
 
 // Loads our data into a function thats accessible throughout this file
-export function loader({ request }) {
+export async function loader({ request }) {
   const url = new URL(request.url);
   const q = url.searchParams.get("q");
-  const items = getProducts(q);
+  const items = await getProducts(q);
+  console.log("items", items)
   return { items, q };
 }
 
