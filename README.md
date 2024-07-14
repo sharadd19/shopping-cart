@@ -1,5 +1,7 @@
 # Shopping Cart 
 
+_Date: Jun 2024_
+
 You can find the deployed website [here](https://shopping-cart-4erk3xumq-sharadd19s-projects.vercel.app/)
 
 ## Description 
